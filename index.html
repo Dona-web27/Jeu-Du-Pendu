@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Jeu du Pendu - Devinez le mot avant que le pendu ne soit complet !"
+    />
+    <meta name="keywords" content="Jeu, Pendu, Deviner, Mot" />
+    <meta name="author" content="Donatien" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeu Du Pendu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Structure du jeu du pendu titre, img, button, semantique ou div -->
+    <header>
+      <h1>Bienvenue Au Jeu du Pendu</h1>
+      <p id="tagline">Devinez le mot avant que le pendu ne soit complet !</p>
+      <p>😈😈😈😈😈😈😈😈</p>
+      <button id="muteButton" aria-label="Activer/Désactiver le son">🔊</button>
+    </header>
+
+    <!-- Section pour la description du jeu mais qui doit apparaitre que si le bouton est appuyer par l'utilisateur -->
+    <div id="modalOverlay">
+      <section
+        class="gameDescription"
+        id="gameDescription"
+        role="dialog"
+        aria-hidden="true"
+      >
+        <p>
+          Le jeu du Pendu est un jeu de lettres où le but est de deviner un mot
+          en proposant des lettres. Chaque erreur rapproche le pendu de sa fin.
+          Bonne chance !
+        </p>
+        <p>
+          <strong>Règles :</strong> Proposez une lettre. Si elle est dans le
+          mot, elle sera révélée. Sinon, vous perdez une vie. Vous avez 7 vies
+          au total.
+        </p>
+        <p>
+          <strong>Objectif :</strong> Deviner le mot avant que le pendu ne soit
+          complet.
+        </p>
+
+        <!--Bouton info plus accessible -->
+        <button id="infoButton" class="float" aria-label="Masquer les règles">
+          X
+        </button>
+      </section>
+    </div>
+
+    <!-- Conteneur flou/glass -->
+
+    <main class="container">
+      <figure class="illustration">
+        <img src="Img/pendu1.jpg" alt="Pendu" id="penduImage" loading="lazy" />
+      </figure>
+
+      <button id="openInfo" class="float" aria-label="Afficher les règles">
+        i
+      </button>
+
+      <section class="word" id="word">
+        <!-- Section Mot à deviner -->
+        <p>Mot à deviner : <span id="hiddenWord"></span></p>
+        <p>Lettre(s) déjà proposée(s) : <span id="guessedLetters"></span></p>
+        <p>
+          Nombre d'essais restants :
+          <span id="remainingAttempts">❤️❤️❤️❤️❤️❤️❤️</span>
+        </p>
+      </section>
+
+      <!-- Section Entrez pour les lettres -->
+
+      <section class="controls">
+        <label for="letterInput"></label>
+        <!-- L'input n'accepte qu'une lettre -->
+        <input
+          type="text"
+          id="letterInput"
+          maxlength="1"
+          pattern="[A-Za-zÀ-ÿ]"
+          required
+          autocomplete="off"
+          placeholder="Entrez une lettre"
+        />
+        <button id="guessButton">Deviner</button>
+        <button id="resetButton">Recommencer</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>Jeu du Pendu - Créé par Donatien</p>
+      <p>© 2025 Tous droits réservés</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

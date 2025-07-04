@@ -1,0 +1,492 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(to right, #f0f0f0, #dcdcdc);
+  color: #3b3f58;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("Img/Futur1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===== ARRET DE SCROLL POUR L'AFFICHAGE MISE EN VALEUR ==== */
+body.modal-open {
+  overflow: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 20px 10px;
+  background-color: #3b3f58;
+  color: white;
+  border-bottom: 5px solid #5c8dff;
+  border-radius: 0 0 20% 20%;
+}
+
+/* ===== HEADER ======= */
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+header p {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+
+/* ======= CONTENEUR PRINCIPAL =======  */
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+  margin: 40px auto;
+  background-color: rgba(30, 34, 60, 0.7);
+  backdrop-filter: blur(2px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  background-image: url("Img/Futur1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ==== ANIMATION DU CONTENAIR EN CAS D'UNE SEULE VIE */
+.container.danger {
+  animation: shake 0.4s ease;
+  box-shadow: 0 0 20px 5px rgba(231, 76, 60, 0.8);
+  border: 2px solid #e74c3c;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ==== ANIMATION EN CAS DEFAITE ==== */
+.container.defeat {
+  animation: shakeHard 0.6s ease;
+  background-color: rgba(231, 76, 60, 0.6);
+  box-shadow: 0 0 25px 10px rgba(231, 76, 60, 0.6);
+}
+
+@keyframes shakeHard {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ====== ILLUSTRATION IMG ====== */
+
+.illustration {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.illustration img {
+  width: 200px;
+  height: 250px;
+  object-fit: contain;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(92, 141, 255, 0.2);
+  border: 4px solid #5c8dff;
+  transition: transform 0.3s ease;
+}
+
+/* Ajout d'un effet sur l'image */
+
+.illustration img:hover {
+  transform: scale(1.05);
+}
+
+.illustration figcaption {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+/* ==== DESCRIPTION DU JEU */
+
+.gameDescription {
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: rgba(20, 24, 40, 0.95);
+  color: #f2f2f2;
+  backdrop-filter: blur(4px);
+  border-left: 6px solid #5c8dff;
+  padding: 24px 28px;
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#gameDescription.visible {
+  opacity: 1;
+  visibility: visible;
+  animation: popOut 0.5s ease;
+}
+
+/* ===== EFFECT 3D ==== */
+@keyframes popOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) perspective(800px) rotateX(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) perspective(800px) rotateX(0deg);
+  }
+}
+
+/* ==== AJOUT EFFECT METTRE EN AVANT LES REGLES */
+#modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px); /* Flou sur tout l'arrière-plan */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#modalOverlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Je cible le bouton qui fera en sorte que la desction s'affiche */
+
+#infoButton {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background-color: #5c8dff;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+#infoButton:hover {
+  background-color: #3b3f58;
+}
+
+/* ===== BOUTON FLOTANT INFO ===== */
+
+#openInfo.float {
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  top: 200px;
+  right: 20px;
+  background-color: #5c8dff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+#openInfo:hover {
+  background-color: #3b3f58;
+}
+
+/* ==== MOT À DEVINER ===== */
+
+.word {
+  background-color: rgba(30, 34, 60, 0.7);
+  color: #f0f0f0;
+  backdrop-filter: blur(2px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.word span {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* ==== ANIMATION DE VICTOIRE ==== */
+.word.victory {
+  animation: glow 1s ease infinite alternate;
+  border: 2px solid #5c8dff;
+  box-shadow: 0 0 20px #5c8dff;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10 #5c9dff;
+  }
+  to {
+    box-shadow: 0 0 20px #5c8dff, 0 0 30px #5c8dff;
+  }
+}
+
+/* Je cible les vies */
+
+#remainingAttempts {
+  font-size: 1.5rem;
+  color: #e74c3c;
+}
+
+/* ===== CONTRÔLES ===== */
+
+.controls {
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.controls label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.controls input[type="text"] {
+  background-color: rgba(30, 34, 60, 0.85);
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  border: 2px solid #5c8dff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.controls input[type="text"]::placeholder {
+  color: #b0b3c6;
+  opacity: 1;
+}
+
+.controls input[type="text"]:focus {
+  border-color: #5572f7;
+  box-shadow: 0 0 0 3px rgba(67, 198, 172, 0.3);
+}
+
+.controls button {
+  background-color: #5c8dff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+  display: block;
+}
+
+.controls button:hover {
+  background-color: #4875db;
+  transform: scale(1.03);
+}
+
+/* ==== EFFECT VISUEL POUR L'INPUT EN CAS D'UNE BONNE REPONSE ===== */
+
+input.correct {
+  animation: flashGreen 0.4s ease;
+}
+
+input.wrong {
+  animation: flashRed 0.4s ease;
+}
+
+@keyframes flashGreen {
+  0% {
+    background-color: #4caf50;
+  }
+  100% {
+    background-color: rgba(30, 34, 60, 0.85);
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: #e74c3c;
+  }
+  100% {
+    background-color: rgba(30, 34, 60, 0.85);
+  }
+}
+
+footer {
+  background-color: #3b3f58;
+  color: white;
+  text-align: center;
+  padding: 8px 10px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  border-top: 5px solid #5c8dff;
+  border-radius: 20% 20% 0 0;
+}
+
+/* ==== RESPONSIVE ===== */
+
+/* Tablettes (768px et moins */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .container {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+
+  .illustration img {
+    width: 150px;
+  }
+
+  .controls input[type="text"] {
+    width: 100%;
+    max-width: none;
+  }
+
+  .controls button {
+    width: 100%;
+    max-width: none;
+  }
+
+  #openInfo.float {
+    top: auto;
+    bottom: 20px;
+    right: 20pxpx;
+  }
+}
+
+/* Mobiles de 480px */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header p {
+    font-size: 0.8rem;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .gameDescription {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  .word {
+    font-size: 1rem;
+  }
+
+  .word span {
+    font-family: 1.1rem;
+  }
+
+  .controls input[type="text"] {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .controls button {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+    display: block;
+  }
+
+  #infoButton {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  #openInfo.float {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  footer {
+    padding: 1px;
+  }
+}
+
+@media (min-width: 900px) {
+  .controls button {
+    padding: 12px 26px;
+    font-size: 1rem;
+    max-width: 260px;
+  }
+}
