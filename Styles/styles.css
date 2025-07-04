@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url("Img/Futur1.png");
+  background-image: url("../Img/Futur1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,7 +52,7 @@ header p {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   padding: 30px;
-  background-image: url("Img/Futur1.png");
+  background-image: url("../Img/Futur1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
