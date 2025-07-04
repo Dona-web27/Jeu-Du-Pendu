@@ -21,10 +21,11 @@ body.modal-open {
 header {
   text-align: center;
   padding: 20px 10px;
-  background-color: #3b3f58;
+  background-color: transparent;
   color: white;
-  border-bottom: 5px solid #5c8dff;
-  border-radius: 0 0 20% 20%;
+  border-bottom: none;
+  border-radius: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* ===== HEADER ======= */
@@ -37,6 +38,13 @@ header h1 {
 header p {
   margin: 8px 0;
   font-size: 1.2rem;
+}
+
+header h1,
+header P {
+  text-shadow: 0 0 5px #5c8dff, 0 0 10px #5c8dff, 0 0 15px #5c8dff;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 /* ======= CONTENEUR PRINCIPAL =======  */
