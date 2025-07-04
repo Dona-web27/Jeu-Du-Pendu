@@ -45,6 +45,16 @@ header P {
   text-shadow: 0 0 5px #5c8dff, 0 0 10px #5c8dff, 0 0 15px #5c8dff;
   color: #ffffff;
   font-weight: 600;
+  font-family: "Orbitron", sans-serif;
+}
+
+header::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 60%;
+  margin: 10px auto 0;
+  background: linear-gradient(to right, transparent, #5c8dff, transparent);
 }
 
 /* ======= CONTENEUR PRINCIPAL =======  */
