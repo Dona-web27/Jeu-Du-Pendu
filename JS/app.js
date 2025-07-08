@@ -44,6 +44,7 @@ let isMuted = false;
 muteButton.addEventListener("click", () => {
   isMuted = !isMuted;
   backgroundMusic.muted = isMuted;
+  dangerSound.muted = isMuted;
   muteButton.textContent = isMuted ? "🔇" : "🔊";
 });
 
