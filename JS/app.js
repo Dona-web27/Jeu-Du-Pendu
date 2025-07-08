@@ -78,7 +78,7 @@ function handleVictory() {
 }
 
 // === FONCTION DÉFAITE ===
- function handDefeat() { 
+ function handleDefeat() { 
     backgroundMusic.pause();
     defeatSound.play();
     document.querySelector(".container").classList.add("defeat");
@@ -112,26 +112,17 @@ function launchConfetti() {
   })();
 }
 
-// === Fonction quand on clique sur le bouton "Deviner" ===
-guessButton.addEventListener("click", () => {
+// === DEVINER UNE LETTRE ===
+function handleGuess() {
   const letter = letterInput.value.toUpperCase();
   if (!letter.match(/[A-ZÀ-Ÿ]/i) || guessedLetters.includes(letter)) {
     letterInput.value = "";
     if (remainingTries === 1) {
       document.querySelector(".container").classList.add("danger");
-    } else {
-      document.querySelector(".container").classList.remove("danger");
-    }
+    } 
     return;
   }
-
-  // ==== Déclencher la vérification avec la touche "Enter" ====
-  letterInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      guessButton.click();
-    }
-  });
-
+  
   guessedLetters.push(letter);
 
   if (secretWord.includes(letter)) {
@@ -155,16 +146,29 @@ guessButton.addEventListener("click", () => {
   updateDisplay();
   letterInput.value = "";
   letterInput.focus();
+  
+  if (!displayedWord.includes("_")) {
+   handleVictory();
+  } else if (remainingTries === 0) {
+   handleDefeat();
+  }
+
+  // === ÉCOUTEURS ===
+  guessButton.addEventListener("click", handleGuess);
+  resetButton.addEventListener("click", initGame);
+  
+  // ==== Déclencher la vérification avec la touche "Enter" ====
+  letterInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      guessButton.click();
+    }
+  });
+
+
+
 
  
- if (!displayedWord.includes("_")) {
-  handleVictory();
- } else if (remainingTries === 0) {
-  handleVictory();
- }
 
-// === Fonction quand on clique sur le bouton "Recommencer" ===
-resetButton.addEventListener("click", initGame);
 
 // === Afficher / Masquer les règles ===
 openInfoButton.addEventListener("click", () => {
