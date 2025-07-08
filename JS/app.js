@@ -197,8 +197,11 @@ document.addEventListener("keydown", (e) => {
 
 // === Lancer le jeu au chargement de la page ===
 window.addEventListener("load", () => {
-  backgroundMusic.play().catch((error) => {
-    console.warn("Lecture automatique bloqué:", error);
-  });
   initGame();
+  if (!isMuted) {
+    backgroundMusic.currentTime = 0;
+    backgroundMusic.play().catch((error) => {
+      console.warn("Lecture automatique bloqué:", error);
+    });
+  }
 });
