@@ -68,25 +68,25 @@ function updateDisplay() {
 
 // === FONCTION VICTOIRE (avec confettis) ===
 function handleVictory() {
-    backgroundMusic.pause();
-    victorySound.play();
-    document.querySelector(".word").classList.add("victory");
-    launchConfetti();
-    setTimeout(() => {
-      alert("🎉 Bravo, vous avez gagné !");
-    }, 200);
+  backgroundMusic.pause();
+  victorySound.play();
+  document.querySelector(".word").classList.add("victory");
+  launchConfetti();
+  setTimeout(() => {
+    alert("🎉 Bravo, vous avez gagné !");
+  }, 200);
 }
 
 // === FONCTION DÉFAITE ===
- function handleDefeat() { 
-    backgroundMusic.pause();
-    defeatSound.play();
-    document.querySelector(".container").classList.add("defeat");
-    setTimeout(() => {
+function handleDefeat() {
+  backgroundMusic.pause();
+  defeatSound.play();
+  document.querySelector(".container").classList.add("defeat");
+  setTimeout(() => {
     alert(`💀 Perdu ! Le mot était : ${secretWord}`);
-    }, 200);
-  }
-  
+  }, 200);
+}
+
 // ==== AJOUT DES CONFETTI AU CAS D'UNE VICTOIRE ====
 function launchConfetti() {
   const duration = 2 * 1000;
@@ -119,10 +119,10 @@ function handleGuess() {
     letterInput.value = "";
     if (remainingTries === 1) {
       document.querySelector(".container").classList.add("danger");
-    } 
+    }
     return;
   }
-  
+
   guessedLetters.push(letter);
 
   if (secretWord.includes(letter)) {
@@ -146,24 +146,24 @@ function handleGuess() {
   updateDisplay();
   letterInput.value = "";
   letterInput.focus();
-  
+
   if (!displayedWord.includes("_")) {
-   handleVictory();
+    handleVictory();
   } else if (remainingTries === 0) {
-   handleDefeat();
+    handleDefeat();
   }
+}
 
-  // === ÉCOUTEURS ===
-  guessButton.addEventListener("click", handleGuess);
-  resetButton.addEventListener("click", initGame);
-  
-  // ==== Déclencher la vérification avec la touche "Enter" ====
-  letterInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      guessButton.click();
-    }
-  });
+// === ÉCOUTEURS ===
+guessButton.addEventListener("click", handleGuess);
+resetButton.addEventListener("click", initGame);
 
+// ==== Déclencher la vérification avec la touche "Enter" ====
+letterInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    guessButton.click();
+  }
+});
 
 // === Afficher / Masquer les règles ===
 openInfoButton.addEventListener("click", () => {
@@ -183,6 +183,7 @@ closeInfoButton.addEventListener("click", () => {
   openInfoButton.focus(); // retour du focus
 });
 
+// Touche Échap pour fermer les règles
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modalOverlay.classList.contains("visible")) {
     closeInfoButton.click();
@@ -194,6 +195,5 @@ window.addEventListener("load", () => {
   backgroundMusic.play().catch((error) => {
     console.warn("Lecture automatique bloqué:", error);
   });
-
   initGame();
 });
