@@ -165,18 +165,12 @@ function handleGuess() {
   });
 
 
-
-
- 
-
-
 // === Afficher / Masquer les règles ===
 openInfoButton.addEventListener("click", () => {
   openInfoButton.style.display = "none";
   document.body.classList.add("modal-open");
   modalOverlay.classList.add("visible");
   rulesBox.classList.add("visible");
-  rulesBox.setAttribute("aria-hidden", false);
   closeInfoButton.focus(); // Pour l'accebilité clavier
 });
 
@@ -186,7 +180,6 @@ closeInfoButton.addEventListener("click", () => {
   document.body.classList.remove("modal-open");
   modalOverlay.classList.remove("visible");
   rulesBox.classList.remove("visible");
-  rulesBox.setAttribute("aria-hidden", "true");
   openInfoButton.focus(); // retour du focus
 });
 
