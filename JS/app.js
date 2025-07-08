@@ -66,6 +66,27 @@ function updateDisplay() {
   remainingAttemptsSpan.textContent = "❤️".repeat(remainingTries);
 }
 
+// === FONCTION VICTOIRE (avec confettis) ===
+function handleVictory() {
+    backgroundMusic.pause();
+    victorySound.play();
+    document.querySelector(".word").classList.add("victory");
+    launchConfetti();
+    setTimeout(() => {
+      alert("🎉 Bravo, vous avez gagné !");
+    }, 200);
+}
+
+// === FONCTION DÉFAITE ===
+ function handDefeat() { 
+    backgroundMusic.pause();
+    defeatSound.play();
+    document.querySelector(".container").classList.add("defeat");
+    setTimeout(() => {
+    alert(`💀 Perdu ! Le mot était : ${secretWord}`);
+    }, 200);
+  }
+  
 // ==== AJOUT DES CONFETTI AU CAS D'UNE VICTOIRE ====
 function launchConfetti() {
   const duration = 2 * 1000;
@@ -135,19 +156,12 @@ guessButton.addEventListener("click", () => {
   letterInput.value = "";
   letterInput.focus();
 
-  if (!displayedWord.includes("_")) {
-    backgroundMusic.pause();
-    victorySound.play();
-    document.querySelector(".word").classList.add("victory");
-    launchConfetti();
-    alert("🎉 Bravo, vous avez gagné !");
-  } else if (remainingTries === 0) {
-    backgroundMusic.pause();
-    defeatSound.play();
-    document.querySelector(".container").classList.add("defeat");
-    alert(`💀 Perdu ! Le mot était : ${secretWord}`);
-  }
-});
+ 
+ if (!displayedWord.includes("_")) {
+  handleVictory();
+ } else if (remainingTries === 0) {
+  handleVictory();
+ }
 
 // === Fonction quand on clique sur le bouton "Recommencer" ===
 resetButton.addEventListener("click", initGame);
