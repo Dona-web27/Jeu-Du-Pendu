@@ -198,10 +198,29 @@ document.addEventListener("keydown", (e) => {
 // === Lancer le jeu au chargement de la page ===
 window.addEventListener("load", () => {
   initGame();
+
+  // On tente de jouer automatiquement
   if (!isMuted) {
     backgroundMusic.currentTime = 0;
     backgroundMusic.play().catch((error) => {
-      console.warn("Lecture automatique bloqué:", error);
+      console.warn(
+        "⛔ Lecture auto bloquée : on attend une action utilisateur"
+      );
+
+      // Plan B : on attend un premier clic pour débloquer l’audio
+      const unlockAudio = () => {
+        backgroundMusic
+          .play()
+          .then(() => {
+            console.log("✅ Musique lancée après clic");
+          })
+          .catch((e) => {
+            console.warn("❌ Toujours bloqué :", e);
+          });
+        window.removeEventListener("click", unlockAudio);
+      };
+
+      window.addEventListener("click", unlockAudio);
     });
   }
 });
