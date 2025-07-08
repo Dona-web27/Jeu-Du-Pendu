@@ -59,7 +59,7 @@ function initGame() {
   }
 }
 
-// === Fonction pour mettre à jour l'affichage ===
+// === AFFICHER LE JEU ACTUALISÉ ===
 function updateDisplay() {
   hiddenWordSpan.textContent = displayedWord.join(" ");
   guessedLettersSpan.textContent = guessedLetters.join(", ");
