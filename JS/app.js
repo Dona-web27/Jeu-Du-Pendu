@@ -66,6 +66,31 @@ function updateDisplay() {
   remainingAttemptsSpan.textContent = "❤️".repeat(remainingTries);
 }
 
+// ==== AJOUT DES CONFETTI AU CAS D'UNE VICTOIRE ====
+function launchConfetti() {
+  const duration = 2 * 1000;
+  const end = Date.now() + duration;
+
+  (function frame() {
+    confetti({
+      particleCount: 100,
+      angle: 60,
+      spread: 100,
+      origin: { x: 0 },
+    });
+    confetti({
+      particleCount: 100,
+      angle: 120,
+      spread: 100,
+      origin: { x: 1 },
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+}
+
 // === Fonction quand on clique sur le bouton "Deviner" ===
 guessButton.addEventListener("click", () => {
   const letter = letterInput.value.toUpperCase();
@@ -109,31 +134,6 @@ guessButton.addEventListener("click", () => {
   updateDisplay();
   letterInput.value = "";
   letterInput.focus();
-
-  // ==== AJOUT DES CONFETTI AU CAS D'UNE VICTOIRE ====
-  function launchConfetti() {
-    const duration = 2 * 1000;
-    const end = Date.now() + duration;
-
-    (function frame() {
-      confetti({
-        particleCount: 100,
-        angle: 60,
-        spread: 100,
-        origin: { x: 0 },
-      });
-      confetti({
-        particleCount: 100,
-        angle: 120,
-        spread: 100,
-        origin: { x: 1 },
-      });
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    })();
-  }
 
   if (!displayedWord.includes("_")) {
     backgroundMusic.pause();
