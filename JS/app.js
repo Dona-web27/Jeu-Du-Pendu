@@ -117,9 +117,7 @@ function handleGuess() {
   const letter = letterInput.value.toUpperCase();
   if (!letter.match(/[A-ZÀ-Ÿ]/i) || guessedLetters.includes(letter)) {
     letterInput.value = "";
-    if (remainingTries === 1) {
-      document.querySelector(".container").classList.add("danger");
-    }
+
     return;
   }
 
