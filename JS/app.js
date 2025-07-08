@@ -34,6 +34,9 @@ const victorySound = new Audio("../Sons/victoire.mp3");
 const defeatSound = new Audio("../Sons/defaite.mp3");
 const dangerSound = new Audio("../Sons/tension.mp3");
 
+dangerSound.loop = true;
+dangerSound.volume = 0.3;
+
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.3;
 
@@ -141,8 +144,12 @@ function handleGuess() {
     // === Ajouter l'effet danger si c'est la dernière vie ===
     if (remainingTries === 1) {
       document.querySelector(".container").classList.add("danger");
+      backgroundMusic.pause();
+      dangerSound.currentTime = 0;
+      dangerSound.play();
     } else {
       document.querySelector(".container").classList.remove("danger");
+      dangerSound.pause();
     }
   }
 
