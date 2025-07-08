@@ -59,6 +59,10 @@ function initGame() {
   penduImage.src = `Img/pendu1.jpg`;
   document.querySelector(".word").classList.remove("victory");
   document.querySelector(".container").classList.remove("defeat", "danger");
+
+  dangerSound.pause();
+  dangerSound.currentTime = 0;
+
   if (!isMuted) {
     backgroundMusic.currentTime = 0;
     backgroundMusic.play();
