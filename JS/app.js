@@ -25,11 +25,14 @@ const openInfoButton = document.getElementById("openInfo");
 const closeInfoButton = document.getElementById("infoButton");
 const modalOverlay = document.getElementById("modalOverlay");
 const muteButton = document.getElementById("muteButton");
-const backgroundMusic = new Audio("sons/sport-epic-race-loop-edit-234478.mp3");
-const correctSound = new Audio("sons/correct.mp3");
-const wrongSound = new Audio("sons/wrong.mp3");
-const victorySound = new Audio("sons/victoire.mp3");
-const defeatSound = new Audio("sons/defaite.mp3");
+const backgroundMusic = new Audio(
+  "../Sons/sport-epic-race-loop-edit-234478.mp3"
+);
+const correctSound = new Audio("../Sons/correct.mp3");
+const wrongSound = new Audio("../Sons/wrong.mp3");
+const victorySound = new Audio("../Sons/victoire.mp3");
+const defeatSound = new Audio("../Sons/defaite.mp3");
+const dangerSound = new Audio("../Sons/tension.mp3");
 
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.3;
