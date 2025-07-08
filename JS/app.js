@@ -136,6 +136,13 @@ function handleGuess() {
     letterInput.classList.add("wrong");
     remainingTries--;
     penduImage.src = `Img/pendu${8 - remainingTries}.jpg`;
+
+    // === Ajouter l'effet danger si c'est la dernière vie ===
+    if (remainingTries === 1) {
+      document.querySelector(".container").classList.add("danger");
+    } else {
+      document.querySelector(".container").classList.remove("danger");
+    }
   }
 
   // Supprimer la classe après l'animation
