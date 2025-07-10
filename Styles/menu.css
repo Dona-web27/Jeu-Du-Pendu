@@ -282,11 +282,11 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
   position: unset;
 }
 
-.container {
+.menu-wrapper {
   display: flex;
 }
 
-.container .main-content {
+.menu-wrapper .main-content {
   flex: 1;
   padding: 30px;
   color: var(--color-text-primary);
