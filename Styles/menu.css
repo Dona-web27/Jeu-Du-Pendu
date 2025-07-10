@@ -157,14 +157,6 @@ body {
   color: var(--color-text-primary);
 }
 
-.search-form span {
-  color: var(--color-text-placeholder);
-}
-
-.search-form input::placeholder {
-  color: var(--color-text-placeholder);
-}
-
 .sidebar-content .menu-list {
   display: flex;
   gap: 4px;
