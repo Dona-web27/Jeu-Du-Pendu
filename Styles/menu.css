@@ -296,6 +296,10 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
     display: block;
   }
 
+  .main-content {
+    margin-left: 0;
+  }
+
   .sidebar {
     position: fixed;
     left: 0;
