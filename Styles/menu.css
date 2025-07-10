@@ -149,6 +149,11 @@ body {
   color: var(--color-text-primary);
   transition: 0.3s ease;
   font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
 }
 
 .menu-link:hover,
