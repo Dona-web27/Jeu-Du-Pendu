@@ -137,6 +137,26 @@ body {
   list-style: none;
 }
 
+.menu-link {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  padding: 20px 15px;
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  transition: 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.menu-link:hover,
+.menu-link:active {
+  background: var(--color-hover-primary);
+  color: #fff;
+}
+
 .menu-list .menu-link {
   text-decoration: none;
   display: flex;
