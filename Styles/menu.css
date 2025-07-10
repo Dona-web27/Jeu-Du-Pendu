@@ -55,6 +55,10 @@ body {
   width: 90px;
 }
 
+.sidebar.collapsed ~ .main-content {
+  margin-left: 90px;
+}
+
 .sidebar .sidebar-header {
   display: flex;
   padding: 20px 18px;
@@ -245,6 +249,11 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
 
 .menu-wrapper {
   display: flex;
+}
+
+.main-content {
+  margin-left: 270px;
+  transition: margin-left 0.3s ease;
 }
 
 .menu-wrapper .main-content {
