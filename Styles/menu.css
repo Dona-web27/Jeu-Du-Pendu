@@ -126,37 +126,6 @@ body {
   scrollbar-width: none;
 }
 
-.sidebar-content .search-form {
-  min-height: 48px;
-  border-radius: 8px;
-  display: flex;
-  padding: 0 15px;
-  margin: 5px 0 20px;
-  align-items: center;
-  white-space: nowrap;
-  background: var(--color-bg-secondery);
-  transition: 0.4s ease;
-}
-
-.sidebar.collapsed .sidebar-content .search-form:hover {
-  cursor: pointer;
-}
-
-.sidebar.collapsed .sidebar-content .search-form:hover,
-.sidebar-content .search-form:focus-within {
-  background: var(--color-hover-secondary);
-}
-
-.search-form input {
-  border: none;
-  background: none;
-  outline: none;
-  font-size: 1rem;
-  width: 100%;
-  margin-left: 15px;
-  color: var(--color-text-primary);
-}
-
 .sidebar-content .menu-list {
   display: flex;
   gap: 4px;
