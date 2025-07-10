@@ -75,6 +75,9 @@ function updateDisplay() {
   hiddenWordSpan.textContent = displayedWord.join(" ");
   guessedLettersSpan.textContent = guessedLetters.join(", ");
   remainingAttemptsSpan.textContent = "❤️".repeat(remainingTries);
+  hiddenWordSpan.innerHTML = displayedWord
+    .map((letter) => `<span>${letter}</span>`)
+    .join("");
 }
 
 // === FONCTION VICTOIRE (avec confettis) ===
