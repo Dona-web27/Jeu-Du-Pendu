@@ -279,7 +279,6 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
 .menu-wrapper {
   display: flex;
   width: 100%;
-  transition: all 0.3s ease;
 }
 
 .menu-wrapper .main-content {
@@ -290,6 +289,13 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
 
 .menu-wrapper.collapsed .main-content {
   margin-left: 90px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  color: var(--color-text-primary);
+  transition: none;
 }
 
 .main-content .page-title {
