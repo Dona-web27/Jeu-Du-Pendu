@@ -280,6 +280,7 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
 .menu-wrapper {
   display: flex;
   width: 100%;
+  transition: all 0.3s ease;
 }
 
 .menu-wrapper .main-content {
