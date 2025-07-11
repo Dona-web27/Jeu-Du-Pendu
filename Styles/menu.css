@@ -288,7 +288,7 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
 }
 
 .menu-wrapper.collapsed .main-content {
-  margin-left: 90px;
+  margin-left: 0;
 }
 
 .main-content {
