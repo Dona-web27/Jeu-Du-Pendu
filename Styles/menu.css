@@ -55,8 +55,9 @@ body {
 }
 
 .sidebar.collapsed {
-  left: -270px;
-  width: 270px;
+  width: 80px;
+  left: 0;
+  overflow: hidden;
 }
 
 .sidebar .sidebar-header {
@@ -77,6 +78,13 @@ body {
 }
 
 .sidebar.collapsed .sidebar-header .header-logo {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .menu-label,
+.sidebar.collapsed .theme-text,
+.sidebar.collapsed .header-logo {
   opacity: 0;
   pointer-events: none;
 }
@@ -288,7 +296,7 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
 }
 
 .menu-wrapper.collapsed .main-content {
-  margin-left: 0;
+  margin-left: 80px;
 }
 
 .main-content {
