@@ -1,4 +1,5 @@
 const sidebar = document.querySelector(".sidebar");
+sidebar.classList.add("collapsed");
 const sidebarToggleBtn = document.querySelectorAll(".sidebar-toggle");
 const themeToggleBtn = document.querySelector(".theme-toggle");
 const themeIcon = themeToggleBtn.querySelector(".theme-icon");
