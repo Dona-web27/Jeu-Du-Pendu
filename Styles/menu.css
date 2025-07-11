@@ -282,13 +282,13 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
   width: 100%;
 }
 
-.main-content {
+.menu-wrapper .main-content {
   margin-left: 270px;
   transition: margin-left 0.3s ease;
   flex: 1;
 }
 
-.menu-wrapper .main-content {
+.menu-wrapper.collapsed .main-content {
   margin-left: 90px;
 }
 
