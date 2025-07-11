@@ -27,6 +27,7 @@ updateThemeIcon();
 sidebarToggleBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed");
+    document.querySelector(".menu-wrapper").classList.toggle("collapsed");
     updateThemeIcon();
   });
 });
