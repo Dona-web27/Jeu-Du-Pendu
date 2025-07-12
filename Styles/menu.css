@@ -347,11 +347,17 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
   }
 
   .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 270px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.4s ease;
   }
 
   .sidebar.collapsed {
-    width: 80px;
+    left: -270px;
   }
   .menu-wrapper .main-content {
     margin-left: 0 !important;
