@@ -345,7 +345,7 @@ body.dark-theme .theme-toggle-track .theme-toggle-indicator {
   }
 
   .sidebar.collapsed {
-    width: 270px;
+    width: 80px;
   }
   .menu-wrapper .main-content {
     margin-left: 0 !important;
