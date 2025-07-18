@@ -71,7 +71,11 @@
             </li>
 
             <li class="menu-item">
-              <button class="menu-link" onclick="muteButton.click()">
+              <button
+                class="menu-link"
+                id="muteButton"
+                aria-label="Activer/Désactiver le son"
+              >
                 <span class="material-symbols-rounded">volume_off</span>
                 <span class="menu-label">Son : ON/OFF</span>
               </button>
@@ -109,16 +113,10 @@
 
       <div class="main-content">
         <!--Structure du jeu du pendu titre, img, button, semantique ou div -->
-        <header>
-          <h1>Bienvenue Au Jeu du Pendu</h1>
-          <p id="tagline">
-            Devinez le mot avant que le pendu ne soit complet !
-          </p>
-          <p>😈😈😈😈😈😈😈😈</p>
-          <button id="muteButton" aria-label="Activer/Désactiver le son">
-            🔊
-          </button>
-        </header>
+
+        <h1>Bienvenue Au Jeu du Pendu</h1>
+        <p id="tagline">Devinez le mot avant que le pendu ne soit complet !</p>
+        <p>😈😈😈😈😈😈😈😈</p>
 
         <!-- Section pour la description du jeu mais qui doit apparaitre que si le bouton est appuyer par l'utilisateur -->
         <div id="modalOverlay">
