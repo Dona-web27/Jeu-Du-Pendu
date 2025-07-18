@@ -33,21 +33,37 @@ h1 {
   font-weight: 600;
 }
 
-header p {
+p {
   margin: 8px 0;
   font-size: 1.2rem;
 }
-
-header::after {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 60%;
-  margin: 10px auto 0;
-  background: linear-gradient(to right, transparent, #5c8dff, transparent);
+/* ====== CONTENUR DU BOUTON COMMENCER ===== */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 20, 0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  text-align: center;
 }
 
-/* ======= CONTENEUR PRINCIPAL =======  */
+/* ===== MODIFICATION DU STYLE DES TITRES ET 
+PARAGRAPHE ====== */
+.welcome-screen h1 {
+  font-size: 2.5rem;
+  color: #00ffff;
+  text-shadow: 0 0 12px #00ffff;
+  margin-bottom: 1rem;
+}
+
+/* ======= CONTENEUR JEU =======  */
 
 .container {
   background: rgba(0, 0, 0, 0.55); /* effet de transparence futuriste */
