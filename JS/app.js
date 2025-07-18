@@ -240,3 +240,24 @@ window.addEventListener("load", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const welcomeScreen = document.getElementById("welcome-screen");
+  const startBtn = document.getElementById("start-btn");
+  const playerNameInput = document.getElementById("player-name");
+  const gameContainer = document.querySelector(".container");
+
+  gameContainer.style.display = "none"; // Cache le jeu au départ
+
+  startBtn.addEventListener("click", () => {
+    const pseudo = playerNameInput.value.trim();
+    if (pseudo === "") {
+      alert("Veuillez entrer un pseudo !");
+      return;
+    }
+
+    localStorage.setItem("pendu-pseudo", pseudo); // Stockage du pseudo
+    welcomeScreen.style.display = "none";
+    gameContainer.style.display = "block";
+  });
+});
