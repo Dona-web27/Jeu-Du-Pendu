@@ -39,8 +39,10 @@ const gameContainer = document.querySelector(".container");
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-btn");
   const playerNameInput = document.getElementById("player-name");
+  const returnHomeBtn = document.getElementById("return-home");
 
   gameContainer.style.display = "none"; // Cache le jeu au départ
+
   startBtn.addEventListener("click", () => {
     const pseudo = playerNameInput.value.trim();
     if (pseudo === "") {
@@ -51,16 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("pendu-pseudo", pseudo); // Stockage du pseudo
     welcomeScreen.style.display = "none";
     gameContainer.style.display = "block";
-    initGame();
   });
-});
 
-/* ==== AJOUT DU BOUTON ACCUEIL POUR REVENIR AU DEBUT ===== */
-document.getElementById("return-home").addEventListener("click", () => {
-  welcomeScreen.style.display = "flex";
-  gameContainer.style.display = "none";
-  score = 0;
-  scoreValue.textContent = score;
+  /* ====BOUTON RETOUR À L'ACCUEIL ===== */
+  returnHomeBtn.addEventListener("click", () => {
+    welcomeScreen.style.display = "flex";
+    gameContainer.style.display = "none";
+    score = 0;
+    scoreValue.textContent = score;
+  });
 });
 
 dangerSound.loop = true;
