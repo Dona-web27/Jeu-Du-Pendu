@@ -35,12 +35,10 @@ const scoreValue = document.getElementById("score-value");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const gameContainer = document.querySelector(".container");
 
-/* ==== AJOUT DU PSEUDO ET LANCEMENT DU JEU  ==== */
+/* ==== ECRAN DE BIENVENUE ==== */
 document.addEventListener("DOMContentLoaded", () => {
-  const welcomeScreen = document.getElementById("welcome-screen");
   const startBtn = document.getElementById("start-btn");
   const playerNameInput = document.getElementById("player-name");
-  const gameContainer = document.querySelector(".container");
 
   gameContainer.style.display = "none"; // Cache le jeu au départ
   startBtn.addEventListener("click", () => {
