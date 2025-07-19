@@ -32,6 +32,16 @@ const victorySound = new Audio("Sons/victoire.mp3");
 const defeatSound = new Audio("Sons/defaite.mp3");
 const dangerSound = new Audio("Sons/tension.mp3");
 const scoreValue = document.getElementById("score-value");
+const welcomeScreen = document.getElementById("welcomeScreen");
+const gameContainer = document.querySelector(".container");
+
+/* ==== AJOUT DU BOUTON ACCUEIL POUR REVENIR AU DEBUT ===== */
+document.getElementById("return-home").addEventListener("click", () => {
+  welcomeScreen.style.display = "flex";
+  gameContainer.style.display = "none";
+  score = 0;
+  scoreValue.textContent = score;
+});
 
 dangerSound.loop = true;
 dangerSound.volume = 0.3;
