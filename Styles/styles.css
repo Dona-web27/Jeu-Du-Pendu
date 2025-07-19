@@ -90,6 +90,15 @@ PARAGRAPHE ====== */
   background-color: #0044aa;
 }
 
+/* ====== SCORE DU JEU ===== */
+#score-display {
+  font-size: 1.2rem;
+  color: #00ffff;
+  text-shadow: 0 0 4px #00ffff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 /* ======= CONTENEUR JEU =======  */
 
 .container {

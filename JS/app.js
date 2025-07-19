@@ -10,6 +10,7 @@ let secretWord = "";
 let displayedWord = [];
 let guessedLetters = [];
 let remainingTries = 7;
+let score = 0;
 
 // === Sélection des éléments HTML ===
 const penduImage = document.getElementById("penduImage");
@@ -19,7 +20,6 @@ const remainingAttemptsSpan = document.getElementById("remainingAttempts");
 const letterInput = document.getElementById("letterInput");
 const guessButton = document.getElementById("guessButton");
 const resetButton = document.getElementById("resetButton");
-
 const rulesBox = document.getElementById("gameDescription");
 const openInfoButton = document.getElementById("openInfo");
 const closeInfoButton = document.getElementById("infoButton");
@@ -31,6 +31,7 @@ const wrongSound = new Audio("Sons/wrong.mp3");
 const victorySound = new Audio("Sons/victoire.mp3");
 const defeatSound = new Audio("Sons/defaite.mp3");
 const dangerSound = new Audio("Sons/tension.mp3");
+const scoreValue = document.getElementById("score-value");
 
 dangerSound.loop = true;
 dangerSound.volume = 0.3;
@@ -169,6 +170,8 @@ function handleGuess() {
   letterInput.focus();
 
   if (!displayedWord.includes("_")) {
+    score += 10;
+    scoreValue.textContent = score;
     handleVictory();
   } else if (remainingTries === 0) {
     handleDefeat();
