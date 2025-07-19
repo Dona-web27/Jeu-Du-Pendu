@@ -261,7 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameContainer = document.querySelector(".container");
 
   gameContainer.style.display = "none"; // Cache le jeu au départ
-
   startBtn.addEventListener("click", () => {
     const pseudo = playerNameInput.value.trim();
     if (pseudo === "") {
