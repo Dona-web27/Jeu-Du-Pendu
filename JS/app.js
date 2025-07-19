@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("pendu-pseudo", pseudo); // Stockage du pseudo
     welcomeScreen.style.display = "none";
     gameContainer.style.display = "block";
+    initGame();
   });
 });
 
