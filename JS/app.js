@@ -35,6 +35,27 @@ const scoreValue = document.getElementById("score-value");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const gameContainer = document.querySelector(".container");
 
+/* ==== AJOUT DU PSEUDO ET LANCEMENT DU JEU  ==== */
+document.addEventListener("DOMContentLoaded", () => {
+  const welcomeScreen = document.getElementById("welcome-screen");
+  const startBtn = document.getElementById("start-btn");
+  const playerNameInput = document.getElementById("player-name");
+  const gameContainer = document.querySelector(".container");
+
+  gameContainer.style.display = "none"; // Cache le jeu au départ
+  startBtn.addEventListener("click", () => {
+    const pseudo = playerNameInput.value.trim();
+    if (pseudo === "") {
+      alert("Veuillez entrer un pseudo !");
+      return;
+    }
+
+    localStorage.setItem("pendu-pseudo", pseudo); // Stockage du pseudo
+    welcomeScreen.style.display = "none";
+    gameContainer.style.display = "block";
+  });
+});
+
 /* ==== AJOUT DU BOUTON ACCUEIL POUR REVENIR AU DEBUT ===== */
 document.getElementById("return-home").addEventListener("click", () => {
   welcomeScreen.style.display = "flex";
@@ -252,24 +273,4 @@ window.addEventListener("load", () => {
       window.addEventListener("click", unlockAudio);
     });
   }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const welcomeScreen = document.getElementById("welcome-screen");
-  const startBtn = document.getElementById("start-btn");
-  const playerNameInput = document.getElementById("player-name");
-  const gameContainer = document.querySelector(".container");
-
-  gameContainer.style.display = "none"; // Cache le jeu au départ
-  startBtn.addEventListener("click", () => {
-    const pseudo = playerNameInput.value.trim();
-    if (pseudo === "") {
-      alert("Veuillez entrer un pseudo !");
-      return;
-    }
-
-    localStorage.setItem("pendu-pseudo", pseudo); // Stockage du pseudo
-    welcomeScreen.style.display = "none";
-    gameContainer.style.display = "block";
-  });
 });
