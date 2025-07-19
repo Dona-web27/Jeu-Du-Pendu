@@ -22,6 +22,7 @@ const systemPrefersDark = window.matchMedia(
 const shouldUseDarkTheme =
   savedTheme === "dark" || (!savedTheme && systemPrefersDark);
 
+/* Apply Dark theme */
 document.body.classList.toggle("dark-theme", shouldUseDarkTheme);
 updateThemeIcon();
 
