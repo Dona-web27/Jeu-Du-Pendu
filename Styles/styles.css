@@ -196,8 +196,7 @@ PARAGRAPHE ====== */
 }
 
 .illustration img {
-  width: 200px;
-  height: 250px;
+  width: 30%;
   object-fit: contain;
   max-width: 100%;
   display: block;
@@ -480,6 +479,18 @@ footer {
 }
 
 /* ==== RESPONSIVE ===== */
+
+@media (max-width: 1100px) {
+  .container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  .word span {
+    width: 24px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+}
 
 /* Tablettes (768px et moins */
 @media (max-width: 768px) {
