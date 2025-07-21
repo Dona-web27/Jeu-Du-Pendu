@@ -34,7 +34,6 @@ const dangerSound = new Audio("Sons/tension.mp3");
 const scoreValue = document.getElementById("score-value");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const gameContainer = document.querySelector(".container");
-const returnHomeBtn = document.getElementById("return-home");
 
 /* ==== ECRAN DE BIENVENUE ==== */
 document.addEventListener("DOMContentLoaded", () => {
