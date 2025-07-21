@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ====BOUTON RETOUR À L'ACCUEIL ===== */
-  returnHomeBtn.addEventListener("click", () => {
+  /*   returnHomeBtn.addEventListener("click", () => {
     welcomeScreen.style.display = "flex";
     gameContainer.style.display = "none";
     score = 0;
     scoreValue.textContent = score;
-  });
+  }); */
 
   // ==== BOUTON MUET ====
   muteButton.addEventListener("click", () => {
