@@ -10,7 +10,6 @@ let secretWord = "";
 let displayedWord = [];
 let guessedLetters = [];
 let remainingTries = 7;
-let score = 0;
 
 // === Sélection des éléments HTML ===
 const penduImage = document.getElementById("penduImage");
@@ -24,25 +23,36 @@ const rulesBox = document.getElementById("gameDescription");
 const openInfoButton = document.getElementById("openInfo");
 const closeInfoButton = document.getElementById("infoButton");
 const modalOverlay = document.getElementById("modalOverlay");
-const muteButton = document.getElementById("muteButton");
-const backgroundMusic = new Audio("Sons/sport-epic-race-loop-edit-234478.mp3");
 const correctSound = new Audio("Sons/correct.mp3");
 const wrongSound = new Audio("Sons/wrong.mp3");
 const victorySound = new Audio("Sons/victoire.mp3");
 const defeatSound = new Audio("Sons/defaite.mp3");
 const dangerSound = new Audio("Sons/tension.mp3");
+
+dangerSound.loop = true;
+dangerSound.volume = 0.3;
+
+const backgroundMusic = new Audio("Sons/sport-epic-race-loop-edit-234478.mp3");
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.3;
+
 const scoreValue = document.getElementById("score-value");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const gameContainer = document.querySelector(".container");
+
+let isMuted = false;
+let score = 0;
 
 /* ==== ECRAN DE BIENVENUE ==== */
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-btn");
   const playerNameInput = document.getElementById("player-name");
   const returnHomeBtn = document.getElementById("return-home");
+  const muteButton = document.getElementById("muteButton");
 
   gameContainer.style.display = "none"; // Cache le jeu au départ
 
+  // ==== LANCEMENT DU JEU ====
   startBtn.addEventListener("click", () => {
     const pseudo = playerNameInput.value.trim();
     if (pseudo === "") {
@@ -62,20 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
     score = 0;
     scoreValue.textContent = score;
   });
-});
 
-dangerSound.loop = true;
-dangerSound.volume = 0.3;
-
-backgroundMusic.loop = true;
-backgroundMusic.volume = 0.3;
-
-let isMuted = false;
-muteButton.addEventListener("click", () => {
-  isMuted = !isMuted;
-  backgroundMusic.muted = isMuted;
-  dangerSound.muted = isMuted;
-  muteButton.textContent = isMuted ? "🔇" : "🔊";
+  // ==== BOUTON MUET ====
+  muteButton.addEventListener("click", () => {
+    isMuted = !isMuted;
+    backgroundMusic.muted = isMuted;
+    dangerSound.muted = isMuted;
+  });
 });
 
 // === Fonction pour choisir un mot aléatoire et réinitialiser le jeu ===
