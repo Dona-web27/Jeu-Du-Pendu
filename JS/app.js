@@ -37,7 +37,7 @@ backgroundMusic.loop = true;
 backgroundMusic.volume = 0.3;
 
 const scoreValue = document.getElementById("score-value");
-const welcomeScreen = document.getElementById("welcomeScreen");
+const welcomeScreen = document.getElementById("welcome-screen");
 const gameContainer = document.querySelector(".container");
 
 let isMuted = false;
@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ====BOUTON RETOUR À L'ACCUEIL ===== */
-  /*   returnHomeBtn.addEventListener("click", () => {
+  returnHomeBtn.addEventListener("click", () => {
     welcomeScreen.style.display = "flex";
     gameContainer.style.display = "none";
     score = 0;
     scoreValue.textContent = score;
-  }); */
+  });
 
   // ==== BOUTON MUET ====
   muteButton.addEventListener("click", () => {
