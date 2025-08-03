@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-console.log("Le bouton est cliquer");
 
 // === Fonction pour choisir un mot aléatoire et réinitialiser le jeu ===
 function initGame() {
