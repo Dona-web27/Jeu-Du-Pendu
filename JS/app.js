@@ -78,6 +78,21 @@ document.addEventListener("DOMContentLoaded", () => {
     isMuted = !isMuted;
     backgroundMusic.muted = isMuted;
     dangerSound.muted = isMuted;
+    correctSound.muted = isMuted;
+    wrongSound.muted = isMuted;
+    victorySound.muted = isMuted;
+    defeatSound.muted = isMuted;
+
+    // Mise à jour de l'icône du bouton
+    const muteIcon = muteButton.querySelector(".material-symbols-rounded");
+    const muteLabel = muteButton.querySelector(".menu-label");
+    if (isMuted) {
+      muteIcon.textContent = "volume_off"; // Icône de son coupé
+      muteLabel.textContent = "Son : OFF";
+    } else {
+      muteIcon.textContent = "volume_up"; // Icône de son activé
+      muteLabel.textContent = "Son : ON";
+    }
   });
 });
 console.log("Le bouton est cliquer");
