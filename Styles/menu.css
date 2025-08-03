@@ -132,7 +132,7 @@ body {
 
 .sidebar-content .menu-list {
   display: flex;
-  gap: 4px;
+  gap: 14px;
   flex-direction: column;
   list-style: none;
 }
@@ -141,7 +141,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
   white-space: nowrap;
   border-radius: 8px;
   color: var(--color-text-primary);
@@ -171,7 +171,7 @@ body {
   align-items: center;
   gap: 12px;
   white-space: nowrap;
-  padding: 0px 15px;
+  padding: 12px 10px;
   min-height: 48px;
   border-radius: 8px;
   color: var(--color-text-primary);
