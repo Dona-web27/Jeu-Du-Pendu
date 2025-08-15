@@ -476,6 +476,7 @@ footer {
   font-size: 0.9rem;
   border-top: 5px solid #5c8dff;
   border-radius: 20% 20% 0 0;
+  display: none;
 }
 
 /* ==== RESPONSIVE ===== */
