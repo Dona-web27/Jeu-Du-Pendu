@@ -87,11 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const muteIcon = muteButton.querySelector(".material-symbols-rounded");
     const muteLabel = muteButton.querySelector(".menu-label");
     if (isMuted) {
-      muteIcon.textContent = "volume_up"; // Icône de son activé
-      muteLabel.textContent = "Son : ON";
-    } else {
       muteIcon.textContent = "volume_off"; // Icône de son coupé
       muteLabel.textContent = "Son : OFF";
+    } else {
+      muteIcon.textContent = "volume_up"; // Icône de son activé
+      muteLabel.textContent = "Son : ON";
     }
   });
 });
